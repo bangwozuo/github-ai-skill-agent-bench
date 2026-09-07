@@ -1,0 +1,18 @@
+{
+  "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-1.0",
+  "repository": "owner/name",
+  "ordinary_user_task": "谁在什么时刻要完成什么任务",
+  "desired_delivery": "可直接查看或继续使用的结果",
+  "skill_or_agent_contribution": "删除该对象会失去哪项规则、动作或交付",
+  "content_mode": "AS-C",
+  "visible_proof": "5到10秒内能看懂的输入、关键变化、结果与人工判断",
+  "novelty_check": {
+    "topic_library_checked": false,
+    "history_library_checked": false,
+    "produced_media_checked": false,
+    "closest_existing_work": "",
+    "material_difference": ""
+  },
+  "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+  "decision": "hold"
+}

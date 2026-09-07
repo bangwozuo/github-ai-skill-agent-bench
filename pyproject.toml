@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "github-ai-skill-agent-bench"
+version = "0.1.0"
+description = "Evidence-first discovery and local reproduction workflow for GitHub AI Skills and Agents"
+readme = "README_zh.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "YangYang"}]
+dependencies = []
+
+[project.scripts]
+github-ai-bench = "github_ai_bench.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

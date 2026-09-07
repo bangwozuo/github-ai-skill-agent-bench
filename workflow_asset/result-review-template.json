@@ -1,0 +1,13 @@
+{
+  "schema": "GITHUB-AI-RESULT-REVIEW-1.0",
+  "case_id": "COPY_FROM_FROZEN_CASE",
+  "human_verdict": "trial",
+  "checks": [
+    {
+      "id": "COPY_EACH_ACCEPTANCE_ID_EXACTLY_ONCE",
+      "status": "pass",
+      "evidence": "指出实际结果中的字段、页面、输出片段或失败日志位置"
+    }
+  ],
+  "notes": "成功运行要求每项为 pass；失败或阻塞运行至少一项为 fail 或 not_run。"
+}

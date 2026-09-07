@@ -1,0 +1,49 @@
+{
+  "schema": "GITHUB-AI-WORK-PUBLICATION-1.0",
+  "work_id": "EVAL-001",
+  "repo_name": "ai-skill-lab-project-slug",
+  "title": "一个普通人的具体任务结果，而不是工具功能表",
+  "summary": "用同一份脱敏任务展示安装边界、实际结果、人工判断和可复用原创代码。",
+  "author": "YOUR_PUBLIC_AUTHOR_NAME",
+  "public_task": "脱敏后的真实任务描述",
+  "public_acceptance": [
+    {
+      "id": "delivery",
+      "text": "公开示例中能直接看到并复核可用交付"
+    }
+  ],
+  "source_boundary": "结论只适用于官方仓库的固定提交、声明环境和这一份输入。",
+  "sanitized_input": "examples-to-publish/input.json",
+  "sanitized_output": "examples-to-publish/output.json",
+  "owned_code": [
+    {
+      "source": "original-code/example.py",
+      "destination": "code/example.py"
+    },
+    {
+      "source": "original-code/test_example.py",
+      "destination": "code/test_example.py"
+    }
+  ],
+  "verification_command": "python code/test_example.py",
+  "rights": {
+    "owned_original_code": true,
+    "third_party_source_included": false,
+    "third_party_assets_included": false,
+    "installed_skill_source_included": false,
+    "internal_workflow_material_included": false,
+    "license_review": "verified",
+    "secrets_removed": true,
+    "personal_data_removed": true
+  },
+  "destination": {
+    "owner": "",
+    "repository": "",
+    "visibility": "public"
+  },
+  "authorization": {
+    "upload_authorized": false,
+    "message_ref": ""
+  }
+}
+

@@ -1,0 +1,30 @@
+{
+  "schema": "GITHUB-AI-BENCHMARK-CASE-1.0",
+  "case_id": "CASE-FEEDBACK-TRIAGE-001",
+  "task": "把一份脱敏用户反馈整理成问题分组、三条可执行行动和一份可复用处理规则",
+  "audience": "需要每周处理产品反馈的内容或产品负责人",
+  "input": {
+    "format": "JSON",
+    "facts": [
+      {"id": "A", "text": "导出文件名难以区分", "frequency": 4},
+      {"id": "B", "text": "手机端按钮容易误触", "frequency": 3},
+      {"id": "C", "text": "新用户不知道从哪里开始", "frequency": 2},
+      {"id": "D", "text": "希望保留上次筛选条件", "frequency": 1}
+    ],
+    "source_boundary": "闭卷合成样本；没有影响权重、客户身份、收入或外部链接"
+  },
+  "required_delivery": {
+    "format": "JSON",
+    "fields": ["problem_groups", "actions", "workflow_asset", "human_stop"],
+    "actions_exact_count": 3,
+    "must_preserve_unknowns": ["impact_weight"],
+    "human_stop": "由负责人确认优先级和是否进入产品排期，不允许自动创建外部工单"
+  },
+  "acceptance": [
+    {"id": "fact_coverage", "text": "四条事实与频次完整且未改写为不存在的数据"},
+    {"id": "unknown_discipline", "text": "影响权重保持未知，不用频次冒充影响程度"},
+    {"id": "three_actions", "text": "恰好三条行动，每条有负责人、问题ID和验收条件"},
+    {"id": "dual_delivery", "text": "同时产出本题结果和可复用处理规则"},
+    {"id": "human_boundary", "text": "没有登录、外发、付款、权限变更或真实客户数据"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "GITHUB-AI-EXISTING-WORKFLOW-BRIDGE-1.0",
+  "integration_mode": "read_only_sidecar",
+  "source_artifact": "GITHUB-AI-EVALUATION-HANDOFF-1.0",
+  "existing_workflow_changes": {
+    "skills": false,
+    "topic_tables": false,
+    "approval_stages": false,
+    "production_state_machine": false
+  },
+  "consumer": {
+    "account_route": "FLOW",
+    "next_stage": "complete_text_package",
+    "fields": [
+      "source_identity",
+      "public_claim",
+      "flow_delivery.task_delivery",
+      "flow_delivery.reusable_asset",
+      "flow_delivery.handoff",
+      "flow_delivery.human_stop"
+    ]
+  },
+  "publication_branch": {
+    "unit": "one_evaluated_work_one_repository",
+    "builder": "github-ai-bench package-work",
+    "remote_publish_is_separate": true
+  }
+}
+

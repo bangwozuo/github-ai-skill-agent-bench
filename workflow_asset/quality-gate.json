@@ -1,0 +1,25 @@
+{
+  "schema": "GITHUB-AI-EVALUATION-QUALITY-GATE-1.0",
+  "admission_model": "hard_gates_without_compensating_total_score",
+  "gates": [
+    {"id": "source_identity", "pass": "官方仓库、40位提交SHA、检索日期一致"},
+    {"id": "license", "pass": "仓库许可证已识别；依赖和素材另查"},
+    {"id": "security", "pass": "不在日常主机直装；无密钥、无个人数据，运行期默认断网"},
+    {"id": "environment", "pass": "操作系统、运行时、依赖锁、服务与偏差已记录"},
+    {"id": "frozen_input", "pass": "实际输入与基准任务哈希一致"},
+    {"id": "raw_logs", "pass": "安装与运行的原始stdout/stderr完整保留"},
+    {"id": "actual_result", "pass": "成功必须有结果文件；失败必须有明确失败位置"},
+    {"id": "human_verdict", "pass": "采用、限定试用或不适合本题三选一"},
+    {"id": "claim_boundary", "pass": "结论只覆盖当前仓库提交、环境和输入"},
+    {"id": "visible_process", "pass": "只有可视过程及QA通过时才允许native_run"}
+  ],
+  "stop_conditions": [
+    "许可证未知或来源不是官方仓库",
+    "仓库归档、禁用或仅为未核实的分叉",
+    "安装需要在宿主机执行不受信任脚本",
+    "需要真实密钥、客户数据、管理员权限或未声明外网访问",
+    "固定提交、输入、日志和结果不属于同一次运行",
+    "登录、验证码、付款、授权、外发、发布、删除或权限变更"
+  ],
+  "decisions": ["evidence_complete_success", "evidence_complete_failed", "evidence_complete_blocked", "hold"]
+}

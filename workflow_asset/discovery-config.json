@@ -1,0 +1,45 @@
+{
+  "schema": "GITHUB-AI-DISCOVERY-CONFIG-1.0",
+  "github_api_version": "2026-03-10",
+  "queries": [
+    {
+      "id": "agent-skills-topic",
+      "q": "topic:agent-skills stars:>100 archived:false fork:false",
+      "sort": "stars",
+      "order": "desc",
+      "max_results": 50
+    },
+    {
+      "id": "agent-skill-phrase",
+      "q": "\"agent skill\" in:name,description stars:>300 archived:false fork:false",
+      "sort": "stars",
+      "order": "desc",
+      "max_results": 50
+    },
+    {
+      "id": "ai-agent-topic",
+      "q": "topic:ai-agent stars:>500 archived:false fork:false",
+      "sort": "stars",
+      "order": "desc",
+      "max_results": 50
+    },
+    {
+      "id": "ai-agent-phrase",
+      "q": "\"AI agent\" in:name,description stars:>2000 archived:false fork:false",
+      "sort": "stars",
+      "order": "desc",
+      "max_results": 50
+    }
+  ],
+  "selection_rules": {
+    "min_stars": 300,
+    "high_reach_stars": 5000,
+    "max_days_since_push": 180,
+    "min_star_velocity_per_day": 5
+  },
+  "notes": [
+    "阈值只用于控制研究队列，不是质量分数或爆款保证。",
+    "至少保留两个不同日期的快照后，才允许描述增长速度。",
+    "每批还要人工补充普通用户任务、可见结果和内容库去重。"
+  ]
+}
