@@ -6,17 +6,67 @@
 
 这里的“高热度”只表示 GitHub 当前快照和内容题材潜力；今天只有一个时点快照，不能声称增长速度，也不能把 Star 写成质量、实测结论或未来流量保证。
 
-## 建议实跑顺序
+## 补充审计后的直接答案
+
+1. **两个账号已经分别考虑，但目前只是候选级路由。** `老杨用AI`看“一个具名对象能不能把一件事做出来”，所以 Humanizer、SkillSpector、Diagram Design、Open Code Review 走 USE；`老杨跑工作流`看“重复任务怎样经过真实交接跑到交付”，所以 Book to Skill、SkillOpt、Distilly 走 FLOW。不是为了凑 4:3；如果后续实跑发现 FLOW 没有真实交接，就必须 HOLD，不能改个标题硬塞。
+2. **没有一条可以声称通过正式爆款评审。** 7 条已完成仓库身份、许可证、固定提交、内容库去重和候选级爆款逻辑初筛；但完整标题/封面/5秒/口播尚未冻结，三角色 `text_delivery` 评审没有运行，本地安装与真实任务也没有完成。因此当前状态只能是“可进入隔离实跑”或“带条件实跑”，不是“已准入、可生产、会爆”。
+3. **可行性与验证复杂度已经进入排序。** 首批只放三条代表任务清楚、结果能在 5—10 秒内看懂、依赖和成本可控的项目；其余四条带权利、模型、开发预览、隐私或长链依赖，必须在各自停止条件内做，不能为了得到正面结论反复重跑。
+
+候选级结构审计文件：[`2026-09-08-top7-account-viral-feasibility.json`](2026-09-08-top7-account-viral-feasibility.json)。它通过只说明账号、爆款初筛和实跑边界字段齐全；不等于正式爆款评审通过。
+
+## 两个账号、受众与调性
+
+| 候选 | 账号 | 核心受众 | 为什么符合调性 | 换到另一个账号会坏在哪里 |
+|---|---|---|---|---|
+| Humanizer | 老杨用AI | 写汇报、方案、产品说明和内容稿的职场人/创作者 | 同题前后对照，老杨判断“自然度”和“事实有没有被改” | 没有跨阶段交接与复跑链，不能包装成 FLOW |
+| SkillSpector | 老杨用AI | 会安装 GitHub/社区 Skill、但看不懂全部代码的人 | 真实扫描、具体风险行、最后给装/不装判断 | 当前只是一次安全检查，不是从发现到部署的完整工作流 |
+| Diagram Design | 老杨用AI | 要解释方案、流程和系统关系的职场人/产品经理 | 成品先行，用手机缩图判断是否真能读 | 当前只做一份说明到一张图解，没有下游交接 |
+| Book to Skill | 老杨跑工作流 | 反复查手册、制度和技术资料的知识工作者/小团队 | 资料预检→索引→Skill包→引用验收，交付可复用资产 | 压成 USE 会只剩一次问答，丢掉资料处理和引用验收链 |
+| Open Code Review | 老杨用AI | 独立开发者、小团队和 AI Coding 用户 | 用预埋 Bug 做挑战，命中、漏报、噪音都展示 | 当前没有修复→回归环，不能说成完整 FLOW |
+| SkillOpt | 老杨跑工作流 | 正在做内部 Skill/Agent 的 AI 实践者 | 失败轨迹→优化→best_skill→保留集验收，链路和停点明确 | 压成 USE 会掩盖训练/保留集和成本闸门 |
+| Distilly | 老杨跑工作流 | 有资深成员经验交接压力的小团队负责人 | 授权→来源账本→人物档案→新问题调用→人工核对 | 压成 USE 会变成一次“模仿回答”，真实性与来源链消失 |
+
+## 爆款逻辑初筛，不冒充正式评审
+
+| 候选 | 主爆点 | 5秒可见证明 | 保存/转发理由 | 候选级结论 |
+|---|---|---|---|---|
+| Humanizer | 同一篇稿“去AI味但不改事实”的前后反差 | 最明显的一组原句/改后句 + 未变化关键数字 | 可复用事实锁定清单 | 初筛通过 |
+| SkillSpector | “想装”与“怕偷数据”的安全反转 | 合成风险代码 + 文件/行号命中 | 可做安装前检查 | 初筛通过 |
+| Diagram Design | 灰框图到手机可读图解的视觉升级 | 同信息量前后图 + 局部关系放大 | 可复用图解选择和验收方法 | 初筛通过 |
+| Book to Skill | 一本资料变成可调用 Skill 的能力跃迁 | 问题→章节引用→Skill目录 | 可复用资料转 Skill 链 | 初筛通过，受权利边界约束 |
+| Open Code Review | 故意埋 3 个 Bug 的挑战揭晓 | 缺陷与行级意见同屏 | 开发者可复用夹具 | 条件通过；受众偏技术 |
+| SkillOpt | 失败记录反过来改好 Skill | 同一保留样例优化前后 | Skill 作者可复用测试拆分 | 条件通过；受众窄、成本高 |
+| Distilly | 经验能交接，但身份不能复制 | 同一新问题前后 + 来源定位 | 团队可复用授权/来源账本 | 条件通过；隐私、伦理和开发预览风险高 |
+
+正式爆款评审必须等每条完整文本形成后，由 `cold_audience`、`creative_spread`、`evidence_craft` 三个独立角色对当前哈希稿件检查。当前 7 条的正式文本评审状态都是 `not_started`；录制和成片评审在真实资产出现前均为不适用。
+
+## 可行性与验证复杂度
+
+| 顺序 | 候选 | 复杂度 | 最小验证 | 关键前置/停止条件 |
+|---:|---|---|---|---|
+| 1 | Humanizer | 低 | 1 篇原创中文稿，1 次改写，事实核对 + 盲读 | 改动事实、安装链不明即停 |
+| 2 | SkillSpector | 低 | 1 个安全/风险混合的合成 Skill，优先无 LLM 扫描 | 需要真实密钥或主机敏感权限即停 |
+| 3 | Diagram Design | 中 | 1 份原创说明→1 张 HTML/SVG→手机缩图验收 | 依赖未授权素材、关系遗漏即停 |
+| 4 | Book to Skill | 中 | 1 份原创/开放许可短手册→Skill→1 个引用问题 | 权利不清、引用错位、过度复制即停 |
+| 5 | Open Code Review | 高 | 1 个原创微型仓库 + 3 个预声明 Bug，1 次审查 | 需要真实业务仓库或模型条件不可冻结即停 |
+| 6 | SkillOpt | 高 | 1 个原创坏 Skill + 训练/保留样例，1 个受限优化运行 | 付费/时长越界、目标漂移、保留集退步即停 |
+| 7 | Distilly | 高 | 1 组获授权材料→人物档案→1 个新问题 | 缺授权、隐私暴露、冒充真人、开发预览不稳即停 |
+
+所有第三方项目只在一次性容器或虚拟机里运行，不带 GitHub Token、API 密钥、客户数据和真实个人资料。每条默认一个代表任务；失败也是结论，不为追求“好看结果”追加运行。
+
+## 经三门审计后的建议实跑顺序
 
 | 顺序 | 候选 | 当前快照 | 类型 | 为什么值得测 | 本轮状态 |
 |---:|---|---:|---|---|---|
-| 1 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 16,562 Star | Skill 安全扫描器 | “一个 Skill 能不能放心装”是这套评测引擎最直接的前置痛点，结果能用风险报告一眼展示 | 已冻结，待隔离实跑 |
-| 2 | [blader/humanizer](https://github.com/blader/humanizer) | 44,952 Star | 写作 Skill | 普通用户能立刻理解“AI 稿保留事实，但读起来不像模板”；输入输出对照清楚 | 已冻结，待中文任务实跑 |
+| 1 | [blader/humanizer](https://github.com/blader/humanizer) | 44,952 Star | 写作 Skill | 受众最广、前后反差清楚、安装和验证成本最低，最适合先形成 USE 标准样片 | 已冻结，待中文任务实跑 |
+| 2 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 16,562 Star | Skill 安全扫描器 | 安装 Skill 前的安全焦虑强，结果能用风险报告一眼展示，且可先走无 LLM 路线 | 已冻结，待隔离实跑 |
 | 3 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 33,278 Star | 图解 Skill | 把复杂说明变成自包含 HTML/SVG 图解，结果视觉差异强，且不同于已有网页 UI 和架构动画题 | 已冻结，待固定提交安装 |
 | 4 | [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill) | 28,968 Star | 知识转 Skill | “一本技术资料变成工作时能调用的 Skill”具有明显能力跃迁，也能交付真实 Skill 包 | 已冻结，待授权资料实跑 |
-| 5 | [alibaba/open-code-review](https://github.com/alibaba/open-code-review) | 22,040 Star | 代码审查 Agent | 同一份带已知缺陷的代码可以直接验证行级问题、漏报和噪音，不依赖作者 Benchmark 下结论 | 已冻结，待安全代码夹具实跑 |
-| 6 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 16,750 Star | Skill 优化 Agent | 能测试“失败轨迹能不能真正改出更好的 Skill”，属于 Skill 生态中的新问题，不是再做一个提示词合集 | 已冻结，待成本预检 |
-| 7 | [titanwings/distilly](https://github.com/titanwings/distilly) | 24,421 Star | 人物经验蒸馏 Agent | 把获授权的访谈/笔记变成人物思考档案，能形成“经验从一个人交接给 Agent”的强结果 | 已冻结；开发预览，最后实跑 |
+| 5 | [alibaba/open-code-review](https://github.com/alibaba/open-code-review) | 22,040 Star | 代码审查 Agent | 挑战结构好，但受众偏技术且运行条件较重，放第二批 | 带条件，待模型与夹具锁定 |
+| 6 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 16,750 Star | Skill 优化 Agent | 问题新，但受众窄、调用成本和验证设计复杂，先做成本预检 | 带条件，待成本预检 |
+| 7 | [titanwings/distilly](https://github.com/titanwings/distilly) | 24,421 Star | 人物经验蒸馏 Agent | 题材有人情张力，但开发预览、隐私和身份边界都更难，最后实跑 | 带条件；开发预览，最后实跑 |
+
+## 逐项评测设计（以下编号沿用最初发现顺序，不代表当前优先级）
 
 ## 01｜SkillSpector：安装 Skill 之前，先看它会不会偷数据
 
@@ -109,4 +159,3 @@
 ## 下一阶段
 
 按顺序先对 SkillSpector、Humanizer、Diagram Design 建立三个隔离运行包。每个候选默认只跑一个代表任务；完成后分别生成本地证据报告、FLOW 只读交接回执和一个独立 GitHub 公版仓库。未完成运行前，公开文案只能写“待实跑候选”。
-

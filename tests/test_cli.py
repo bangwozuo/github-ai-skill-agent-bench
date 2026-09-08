@@ -21,6 +21,7 @@ from github_ai_bench.cli import (  # noqa: E402
     render_report,
     sha256_file,
     shortlist_snapshot,
+    validate_editorial_review,
     validate_run_data,
     write_json,
 )
@@ -87,6 +88,86 @@ class SnapshotTests(unittest.TestCase):
         self.assertEqual(by_name["demo/licensed"]["decision"], "reproduction_candidate")
         self.assertEqual(by_name["demo/unknown"]["decision"], "market_watch")
         self.assertIn("license_unverified", by_name["demo/unknown"]["hard_holds"])
+
+
+class EditorialReviewTests(unittest.TestCase):
+    def review(self) -> dict:
+        return {
+            "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+            "repository": "demo/skill",
+            "ordinary_user_task": "把一篇冻结原稿改得更自然",
+            "desired_delivery": "改写稿、事实核对和人工判断",
+            "skill_or_agent_contribution": "提供明确的风格检查规则",
+            "content_mode": "AS-A_with_comparison",
+            "novelty_check": {
+                "topic_library_checked": True,
+                "history_library_checked": True,
+                "produced_media_checked": True,
+                "closest_existing_work": "none",
+                "material_difference": "same-task factual retention plus blind verdict",
+            },
+            "account_fit": {
+                "route": "USE",
+                "account_name": "老杨用AI",
+                "audience": "经常写工作稿但讨厌模板腔的人",
+                "tone_fit": "真实对照、直接判断、不神化工具",
+                "other_account_failure_reason": "只有一次改写与判断，没有跨阶段交接",
+                "public_signal": "同一原稿前后对照并给出能用/需改结论",
+                "required_chain": {
+                    "named_object": "demo/skill",
+                    "bounded_task": "改写一篇冻结原稿",
+                    "visible_result": "前后稿和事实差异",
+                    "human_verdict": "能用/需改/别用",
+                },
+            },
+            "viral_logic": {
+                "pre_screen_state": "pass",
+                "dominant_engine": "same-task reversal",
+                "click_promise": "改自然但不改事实",
+                "cover_payoff": "改前/改后",
+                "first_five_seconds": "同屏出现最明显的一组句子变化",
+                "visible_proof": "差异和事实核对同屏",
+                "takeaway": "公开测试输入和核对表",
+                "share_or_save_reason": "写作者可以复用核对方法",
+                "truth_boundary": "只报告本次中文输入",
+            },
+            "feasibility": {
+                "run_route": "controlled_minimal_run",
+                "complexity": "low",
+                "isolated_environment": True,
+                "secrets_prohibited": True,
+                "representative_input": "原创中文稿",
+                "acceptance": "事实不变且盲读认为更自然",
+                "stop_condition": "安装失败或事实改变立即停止",
+                "cost_guard": "只跑一个输入",
+                "max_runs": 1,
+            },
+            "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+            "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+            "production_approved": False,
+            "decision": "ready_for_isolated_run",
+        }
+
+    def test_candidate_screen_can_pass_without_faking_formal_review(self) -> None:
+        receipt = validate_editorial_review(self.review())
+        self.assertEqual(receipt["status"], "pass")
+        self.assertEqual(receipt["formal_viral_review_status"], "not_started")
+
+    def test_formal_pass_requires_hash_bound_artifact(self) -> None:
+        review = self.review()
+        review["formal_viral_review"]["status"] = "passed"
+        receipt = validate_editorial_review(review)
+        self.assertEqual(receipt["status"], "fail")
+        failed = {item["id"] for item in receipt["checks"] if item["status"] == "fail"}
+        self.assertIn("formal_review_evidence", failed)
+
+    def test_ready_decision_rejects_conditional_viral_screen(self) -> None:
+        review = self.review()
+        review["viral_logic"]["pre_screen_state"] = "conditional"
+        receipt = validate_editorial_review(review)
+        self.assertEqual(receipt["status"], "fail")
+        failed = {item["id"] for item in receipt["checks"] if item["status"] == "fail"}
+        self.assertIn("decision_consistency", failed)
 
 
 class RunValidationTests(unittest.TestCase):

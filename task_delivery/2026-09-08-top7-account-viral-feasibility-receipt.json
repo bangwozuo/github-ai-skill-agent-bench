@@ -1,0 +1,674 @@
+{
+  "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+  "status": "pass",
+  "review_count": 7,
+  "repositories_unique": true,
+  "reviews": [
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "blader/humanizer",
+      "status": "pass",
+      "candidate_state": "ready_for_isolated_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "NVIDIA/SkillSpector",
+      "status": "pass",
+      "candidate_state": "ready_for_isolated_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "cathrynlavery/diagram-design",
+      "status": "pass",
+      "candidate_state": "ready_for_isolated_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "virgiliojr94/book-to-skill",
+      "status": "pass",
+      "candidate_state": "conditional_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "alibaba/open-code-review",
+      "status": "pass",
+      "candidate_state": "conditional_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "microsoft/SkillOpt",
+      "status": "pass",
+      "candidate_state": "conditional_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0",
+      "repository": "titanwings/distilly",
+      "status": "pass",
+      "candidate_state": "conditional_run",
+      "formal_viral_review_status": "not_started",
+      "checks": [
+        {
+          "id": "schema",
+          "status": "pass",
+          "message": "schema must be GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+        },
+        {
+          "id": "candidate_identity",
+          "status": "pass",
+          "message": "repository, ordinary task, delivery and material contribution are required"
+        },
+        {
+          "id": "novelty_check",
+          "status": "pass",
+          "message": "all three existing-content surfaces and the material difference must be recorded"
+        },
+        {
+          "id": "account_route",
+          "status": "pass",
+          "message": "account route must be USE, FLOW or HOLD"
+        },
+        {
+          "id": "account_audience_and_tone",
+          "status": "pass",
+          "message": "audience, tone, public signal and other-account failure reason are required"
+        },
+        {
+          "id": "account_native_chain",
+          "status": "pass",
+          "message": "the selected account's native public chain must be complete"
+        },
+        {
+          "id": "viral_logic_substance",
+          "status": "pass",
+          "message": "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary"
+        },
+        {
+          "id": "viral_pre_screen_state",
+          "status": "pass",
+          "message": "viral pre-screen state must be pass, conditional or hold"
+        },
+        {
+          "id": "feasibility_route",
+          "status": "pass",
+          "message": "one bounded run route is required"
+        },
+        {
+          "id": "feasibility_complexity",
+          "status": "pass",
+          "message": "complexity must be low, medium or high"
+        },
+        {
+          "id": "feasibility_safety",
+          "status": "pass",
+          "message": "third-party execution must stay isolated and secret-free"
+        },
+        {
+          "id": "feasibility_acceptance_and_stop",
+          "status": "pass",
+          "message": "representative input, acceptance, stop/cost guards and one to three maximum runs are required"
+        },
+        {
+          "id": "formal_review_state",
+          "status": "pass",
+          "message": "formal viral review status must be explicit"
+        },
+        {
+          "id": "formal_review_evidence",
+          "status": "pass",
+          "message": "a formal pass requires a hash-bound review artifact"
+        },
+        {
+          "id": "candidate_decision",
+          "status": "pass",
+          "message": "candidate decision must stay pre-production"
+        },
+        {
+          "id": "decision_consistency",
+          "status": "pass",
+          "message": "ready, conditional and hold decisions must match route, viral screen and feasibility"
+        },
+        {
+          "id": "no_false_production_approval",
+          "status": "pass",
+          "message": "candidate screening cannot grant production approval or an own-run claim"
+        }
+      ],
+      "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee."
+    }
+  ],
+  "boundary": "This validates candidate-stage account fit, viral pre-screen fields and bounded feasibility. Formal text, recording and final-media reviews remain separate."
+}

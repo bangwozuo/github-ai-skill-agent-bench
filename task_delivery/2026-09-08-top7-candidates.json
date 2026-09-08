@@ -13,6 +13,24 @@
     "writes_existing_tables": false,
     "decision": "semantic near-duplicates excluded from the first evaluation batch"
   },
+  "supplemental_editorial_review": {
+    "path": "task_delivery/2026-09-08-top7-account-viral-feasibility.json",
+    "receipt": "task_delivery/2026-09-08-top7-account-viral-feasibility-receipt.json",
+    "status": "candidate_stage_pass",
+    "production_priority_order": [
+      "blader/humanizer",
+      "NVIDIA/SkillSpector",
+      "cathrynlavery/diagram-design",
+      "virgiliojr94/book-to-skill",
+      "alibaba/open-code-review",
+      "microsoft/SkillOpt",
+      "titanwings/distilly"
+    ],
+    "account_split": {"USE": 4, "FLOW": 3},
+    "formal_viral_review": "not_started",
+    "local_reproduction": "not_started",
+    "boundary": "candidate-stage structure passed; no production approval, own-run claim or traffic guarantee"
+  },
   "candidates": [
     {
       "order": 1,
@@ -108,4 +126,3 @@
   ],
   "public_boundary": "No selected third-party repository has been installed or run by this mining report. Star counts and README claims are source observations, not adoption conclusions or traffic guarantees."
 }
-

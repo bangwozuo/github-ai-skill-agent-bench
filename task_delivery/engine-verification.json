@@ -1,0 +1,17 @@
+{
+  "schema": "GITHUB-AI-ENGINE-VERIFICATION-1.0",
+  "checked_at": "2026-09-08T01:08:56+00:00",
+  "status": "pass",
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "compile": {
+    "status": "pass",
+    "error": ""
+  },
+  "tests": {
+    "status": "pass",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_candidate_screen_can_pass_without_faking_formal_review (test_cli.EditorialReviewTests.test_candidate_screen_can_pass_without_faking_formal_review) ... ok\ntest_formal_pass_requires_hash_bound_artifact (test_cli.EditorialReviewTests.test_formal_pass_requires_hash_bound_artifact) ... ok\ntest_ready_decision_rejects_conditional_viral_screen (test_cli.EditorialReviewTests.test_ready_decision_rejects_conditional_viral_screen) ... ok\ntest_complete_actual_result_passes (test_cli.RunValidationTests.test_complete_actual_result_passes) ... ok\ntest_export_handoff_is_read_only_and_preserves_gate (test_cli.RunValidationTests.test_export_handoff_is_read_only_and_preserves_gate) ... ok\ntest_native_run_requires_capture_and_qa (test_cli.RunValidationTests.test_native_run_requires_capture_and_qa) ... ok\ntest_package_work_builds_one_sanitized_draft_repository (test_cli.RunValidationTests.test_package_work_builds_one_sanitized_draft_repository) ... ok\ntest_package_work_rejects_third_party_source (test_cli.RunValidationTests.test_package_work_rejects_third_party_source) ... ok\ntest_report_preserves_narrow_boundary (test_cli.RunValidationTests.test_report_preserves_narrow_boundary) ... ok\ntest_success_cannot_hide_failed_acceptance (test_cli.RunValidationTests.test_success_cannot_hide_failed_acceptance) ... ok\ntest_compare_uses_two_snapshots (test_cli.SnapshotTests.test_compare_uses_two_snapshots) ... ok\ntest_shortlist_keeps_license_as_hard_gate (test_cli.SnapshotTests.test_shortlist_keeps_license_as_hard_gate) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.132s\n\nOK\n"
+  },
+  "claim_boundary": "该回执只证明引擎代码与合成测试通过，不证明任何第三方仓库已安装或适用。"
+}

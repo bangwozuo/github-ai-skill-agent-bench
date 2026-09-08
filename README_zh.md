@@ -21,6 +21,8 @@
 
 - [2026-09-08：7 个 GitHub 高热度 AI Skill / Agent 真实评测候选](task_delivery/2026-09-08-top7-candidates.md)
 
+最新版候选报告已经补充双账号受众与调性路由、爆款逻辑初筛、正式评审状态、验证复杂度和停止条件。可用 `validate-editorial` 对这些候选级字段做结构校验；通过仍不等于正式爆款评审、实跑或生产批准。
+
 该清单来自一个有时间戳的 GitHub 快照和当前内容库去重，表示“值得进入隔离实跑”，不表示已经安装、跑通、采用或保证爆款。
 
 ## 快速开始
@@ -45,6 +47,11 @@ github-ai-bench shortlist \
   --momentum runs/momentum.json \
   --config workflow_asset/discovery-config.json \
   --output runs/shortlist.json
+
+# 3.5 校验账号适配、爆款初筛和有界实跑方案
+github-ai-bench validate-editorial \
+  --input task_delivery/2026-09-08-top7-account-viral-feasibility.json \
+  --output runs/top7-editorial-receipt.json
 
 # 4. 冻结一个官方仓库和当前提交
 github-ai-bench freeze-candidate \

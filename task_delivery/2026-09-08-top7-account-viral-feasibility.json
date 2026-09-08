@@ -1,0 +1,415 @@
+{
+  "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-BATCH-1.0",
+  "observed_at": "2026-09-08T00:14:21Z",
+  "account_policy": {
+    "USE": "具名对象 → 单一任务 → 可见结果 → 人工判断",
+    "FLOW": "重复触发 → 多阶段处理 → 真实交接 → 人工停点 → 任务交付 + 可复用资产"
+  },
+  "review_boundary": {
+    "candidate_pre_screen": "completed",
+    "formal_text_viral_review": "not_started",
+    "local_reproduction": "not_started",
+    "recording_review": "not_applicable_until_run",
+    "final_media_review": "not_applicable_until_media"
+  },
+  "reviews": [
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 1,
+      "repository": "blader/humanizer",
+      "ordinary_user_task": "把一篇原创中文工作稿改得更自然，同时不改事实、数字和专名",
+      "desired_delivery": "改写前后稿、事实保持核对和独立盲读判断",
+      "skill_or_agent_contribution": "提供一套可复用的反模板腔检查和改写规则",
+      "content_mode": "AS-A_with_comparison",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "WO-COMP-20260903-USE-07 只把去AI味作为六类护栏之一",
+        "material_difference": "本题是单一中文真实任务、事实保持检查和盲读结论，不是护栏合集"
+      },
+      "account_fit": {
+        "route": "USE",
+        "account_name": "老杨用AI",
+        "audience": "经常写汇报、方案、产品说明和内容稿，但讨厌AI模板腔的职场人和创作者",
+        "tone_fit": "结果先行、同题对照、说人话、最后给能用/需改判断",
+        "other_account_failure_reason": "当前只有一次改写与验收，没有跨阶段资产交接和复跑链",
+        "public_signal": "同一篇原稿改前改后并排，老杨直接判断事实有没有被改",
+        "required_chain": {
+          "named_object": "blader/humanizer",
+          "bounded_task": "改写一篇冻结的原创中文稿",
+          "visible_result": "原稿、改写稿和事实差异",
+          "human_verdict": "自然度与事实保持分别给出能用/需改/别用"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "pass",
+        "dominant_engine": "同一任务的前后反差",
+        "click_promise": "去掉AI味，但数字和事实一个都不能乱",
+        "cover_payoff": "改前像模板 / 改后像人话",
+        "first_five_seconds": "同屏放最明显的一组原句与改后句，再亮出一个未变化的关键数字",
+        "visible_proof": "文本差异与事实核对同时可读",
+        "takeaway": "公开测试输入、事实锁定清单和人工判断方法",
+        "share_or_save_reason": "写作者可复用同一核对方法检查自己的稿子",
+        "truth_boundary": "只对本次冻结中文样本下结论，不把主观自然度写成普遍性能"
+      },
+      "feasibility": {
+        "run_route": "controlled_minimal_run",
+        "complexity": "low",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "800—1000字原创中文产品说明，冻结数字、事实和专名",
+        "acceptance": "输出完整可读、冻结事实无变化、独立盲读能指出具体改善或退步",
+        "stop_condition": "安装链不明、输出改动事实或要求真实个人资料时停止",
+        "cost_guard": "首轮只跑一个输入，不为追求好看结果反复重跑",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "ready_for_isolated_run"
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 2,
+      "repository": "NVIDIA/SkillSpector",
+      "ordinary_user_task": "安装陌生Skill之前，先发现提示词注入、危险代码和可疑外发行为",
+      "desired_delivery": "带文件、行号和风险类别的JSON/Markdown扫描报告与人工安装判断",
+      "skill_or_agent_contribution": "把Skill安全检查封装为可重复扫描规则和报告",
+      "content_mode": "AS-C",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "WO-COMP-20260903-USE-07 是新手项目护栏Skill合集",
+        "material_difference": "本题评测第三方Skill本身的安全风险，交付是定位到文件与行号的风险报告"
+      },
+      "account_fit": {
+        "route": "USE",
+        "account_name": "老杨用AI",
+        "audience": "会从GitHub或社区安装Skill，但看不懂全部代码的AI用户和轻技术创作者",
+        "tone_fit": "不制造恐慌，用合成风险夹具实扫，再给装/不装判断",
+        "other_account_failure_reason": "当前作品只验证一次扫描和人工判断，不是从发现到部署的多阶段交付链",
+        "public_signal": "同一个待安装Skill被扫出具体风险行，老杨最后决定是否安装",
+        "required_chain": {
+          "named_object": "NVIDIA/SkillSpector",
+          "bounded_task": "扫描一个只含合成风险样例的Skill目录",
+          "visible_result": "风险类别、文件和行号报告",
+          "human_verdict": "允许安装/限定安装/拒绝安装"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "pass",
+        "dominant_engine": "安装冲动与安全风险的反转",
+        "click_promise": "高Star Skill也别直接装，先看它碰不碰你的数据",
+        "cover_payoff": "能不能装，一扫见分晓",
+        "first_five_seconds": "左边是待安装Skill，右边直接亮出风险类别、文件和行号",
+        "visible_proof": "合成恶意片段与扫描命中同屏",
+        "takeaway": "安全扫描夹具、风险阅读方法和安装判断表",
+        "share_or_save_reason": "经常装Skill的人可以把它作为安装前检查步骤",
+        "truth_boundary": "只说明本次合成夹具命中情况，作者统计与我方结果分开"
+      },
+      "feasibility": {
+        "run_route": "controlled_minimal_run",
+        "complexity": "low",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "包含安全规则、提示词注入和模拟外发代码的合成Skill目录",
+        "acceptance": "报告能定位预埋风险且安全样例没有不可解释的阻断",
+        "stop_condition": "需要真实密钥、主机敏感目录或超出隔离容器的权限时停止",
+        "cost_guard": "优先无LLM路线，只跑一份混合夹具",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "ready_for_isolated_run"
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 3,
+      "repository": "cathrynlavery/diagram-design",
+      "ordinary_user_task": "把一份复杂流程说明变成手机上也能看懂的图解",
+      "desired_delivery": "自包含HTML/SVG、手机缩图和信息层级验收",
+      "skill_or_agent_contribution": "先选择合适的图解类型，再落实层级、关系和可读性规则",
+      "content_mode": "AS-A_with_comparison",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "WO-COMP-20260903-USE-06 关注网页产品感；既有多条网站与PPT视觉题",
+        "material_difference": "本题交付是信息关系图解与手机可读验收，不是网页UI、动效或PPT美化"
+      },
+      "account_fit": {
+        "route": "USE",
+        "account_name": "老杨用AI",
+        "audience": "要解释方案、流程、系统关系的职场人、产品经理和内容创作者",
+        "tone_fit": "直接看结果，不讲抽象审美，用手机缩图验收是否真能读",
+        "other_account_failure_reason": "当前测试是一次说明转图解，没有真实下游交接和第二份复跑",
+        "public_signal": "同一份说明生成普通框图与编辑式图解，老杨判断信息是否更清楚",
+        "required_chain": {
+          "named_object": "cathrynlavery/diagram-design",
+          "bounded_task": "把一份冻结流程说明转成一张图解",
+          "visible_result": "HTML/SVG图解和手机缩图",
+          "human_verdict": "能读/需改/别用"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "pass",
+        "dominant_engine": "灰框图到可读图解的视觉升级",
+        "click_promise": "同一份复杂方案，不再自动长成一堆灰色方框",
+        "cover_payoff": "流程图像后台 / 图解一眼看懂",
+        "first_five_seconds": "普通框图与成品图解同屏，马上放大最关键的一组关系",
+        "visible_proof": "同信息量的前后图解和手机缩图",
+        "takeaway": "可打开图解、原始说明与手机可读验收表",
+        "share_or_save_reason": "需要做汇报或解释系统的人可以复用测试方法",
+        "truth_boundary": "不把换颜色当提升；图解类型数量按固定提交复核"
+      },
+      "feasibility": {
+        "run_route": "controlled_minimal_run",
+        "complexity": "medium",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "600字原创流程说明和固定关系清单",
+        "acceptance": "HTML/SVG可独立打开、关系无遗漏、270×360缩图仍能识别主层级",
+        "stop_condition": "固定提交无法安装、输出依赖未授权外部素材或关键信息被删时停止",
+        "cost_guard": "只生成一个主版本，不为审美偏好无限重做",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "ready_for_isolated_run"
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 4,
+      "repository": "virgiliojr94/book-to-skill",
+      "ordinary_user_task": "把反复查阅的技术资料变成工作时可调用、可追溯引用的Skill",
+      "desired_delivery": "生成的Skill目录、索引、引用问答结果和版权检查",
+      "skill_or_agent_contribution": "把资料抽取、结构化、Skill生成和引用验证串成可复用链",
+      "content_mode": "AS-A",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "WO-COMP-20260903-USE-02 是整个项目文件夹的永久记忆图谱",
+        "material_difference": "本题把有权使用的单份技术资料打包成可移植Skill，并验证引用定位与版权边界"
+      },
+      "account_fit": {
+        "route": "FLOW",
+        "account_name": "老杨跑工作流",
+        "audience": "反复查手册、制度、技术指南的知识工作者和小团队",
+        "tone_fit": "从资料到可用交付逐站展示，强调引用核对和人工放行",
+        "other_account_failure_reason": "压成USE会只剩一次问答，丢失资料处理、索引、Skill包和引用验收的交接链",
+        "public_signal": "一本资料经过抽取、索引和Skill打包，最后交付可复用Skill与引用问答",
+        "required_chain": {
+          "recurring_trigger": "每次工作遇到同类问题都要重新翻资料",
+          "stages": ["权利与内容预检", "提取并建立索引", "生成Skill包", "引用问答验收"],
+          "handoff": "结构化索引被Skill生成阶段消费，Skill包再被问答验收消费",
+          "human_stop": "许可不清、引用错位或输出大段复制原文时停止",
+          "task_delivery": "本次资料对应的Skill包与可追溯问答",
+          "reusable_asset": "资料转Skill输入规范、引用验收表和运行模板"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "pass",
+        "dominant_engine": "一本资料变成随时可调用能力的跃迁",
+        "click_promise": "这本PDF不用每次重读，我把它做成了能工作的Skill",
+        "cover_payoff": "一本资料 → 一个能问的Skill",
+        "first_five_seconds": "直接问一个具体工作问题，答案跳到对应章节依据，再亮出Skill目录",
+        "visible_proof": "问题、引用定位和生成目录同屏",
+        "takeaway": "可复用转换模板、引用验收表和公开示例Skill",
+        "share_or_save_reason": "有手册和制度资料的人可复用完整链",
+        "truth_boundary": "只用原创或开放许可资料，不复述作者Token/不幻觉主张"
+      },
+      "feasibility": {
+        "run_route": "workflow_minimal_run",
+        "complexity": "medium",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "原创或明确开放许可的小型技术手册",
+        "acceptance": "Skill可加载、能回答冻结问题、引用准确且没有过度复制原文",
+        "stop_condition": "资料权利不清、提取依赖失败、引用无法追溯或输出越过版权边界时停止",
+        "cost_guard": "一份短资料、一个问题、一个完整链，不扩展到整本商业书",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "conditional_run"
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 5,
+      "repository": "alibaba/open-code-review",
+      "ordinary_user_task": "代码提交前找出具体缺陷并判断哪些意见值得改",
+      "desired_delivery": "行级JSON意见、预埋问题命中/漏报/噪音和人工采用判断",
+      "skill_or_agent_contribution": "将代码审查规则、定位和结构化反馈封装为可重复任务",
+      "content_mode": "AS-C",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "WO-COMP-20260903-FLOW-06 是浏览器下单自动测试；WO-COMP-20260903-FLOW-11 是网页三道质量门",
+        "material_difference": "本题在原创代码夹具上评测行级代码审查Agent，结果是命中、漏报和噪音，不是浏览器流程或网页视觉验收"
+      },
+      "account_fit": {
+        "route": "USE",
+        "account_name": "老杨用AI",
+        "audience": "独立开发者、小团队和用AI写代码但担心漏Bug的人",
+        "tone_fit": "用故意埋的Bug做挑战，展示命中也展示漏报和噪音",
+        "other_account_failure_reason": "当前只审一次仓库并由人判断，没有修复、回归和交付的完整多阶段链",
+        "public_signal": "同一份代码里的预埋Bug与Agent意见同屏，老杨逐条采用或驳回",
+        "required_chain": {
+          "named_object": "alibaba/open-code-review",
+          "bounded_task": "审查一个含三类已知缺陷的原创微型仓库",
+          "visible_result": "行级意见和命中/漏报/噪音表",
+          "human_verdict": "每条意见采用/需改/驳回"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "conditional",
+        "dominant_engine": "预埋Bug挑战",
+        "click_promise": "我故意埋了3个Bug，这个审查Agent能抓住哪一行",
+        "cover_payoff": "3个Bug，它抓到几个",
+        "first_five_seconds": "代码缺陷与Agent定位行号同屏，先揭晓一个明确命中或漏报",
+        "visible_proof": "已知缺陷、审查意见和人工判断三者同屏",
+        "takeaway": "公开夹具、缺陷清单和审查结果",
+        "share_or_save_reason": "开发者可复用夹具和判断表测试自己的审查工具",
+        "truth_boundary": "作者Benchmark不算我方结果；模型、版本和输入必须冻结"
+      },
+      "feasibility": {
+        "run_route": "controlled_minimal_run",
+        "complexity": "high",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "原创微型仓库，预埋空值、输入处理和并发边界三类问题",
+        "acceptance": "输出可定位到行，命中/漏报/噪音都能对照预声明真值集",
+        "stop_condition": "需要真实业务仓库、外部发送权限、无法冻结模型条件或安装失败时停止",
+        "cost_guard": "一个小仓库、一次审查，不追加修复回归链",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "conditional_run"
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 6,
+      "repository": "microsoft/SkillOpt",
+      "ordinary_user_task": "把一个经常失败的原创Skill用失败轨迹改到在保留样例上也能用",
+      "desired_delivery": "基线Skill、优化Skill、训练轨迹、保留样例结果和人工判断",
+      "skill_or_agent_contribution": "将失败记录、优化迭代、候选选择和保留集验证串成可复用链",
+      "content_mode": "AS-C",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "现有内容含提示词/Skill护栏和多Agent项目，但没有Skill自动优化的训练—保留集链",
+        "material_difference": "本题交付优化前后Skill与独立保留集证据，核心不是再推荐一个Skill合集"
+      },
+      "account_fit": {
+        "route": "FLOW",
+        "account_name": "老杨跑工作流",
+        "audience": "正在做内部Skill、提示词工具或Agent流程的AI实践者",
+        "tone_fit": "展示失败、迭代和保留集验收，不用训练集变好冒充泛化",
+        "other_account_failure_reason": "压成USE会只剩一次前后对比，丢失失败轨迹、优化循环和保留集交接",
+        "public_signal": "失败样例进入优化链，产出best_skill，再交给独立保留集验收",
+        "required_chain": {
+          "recurring_trigger": "同一个Skill在真实任务中反复失败或输出不稳定",
+          "stages": ["冻结基线与训练/保留样例", "运行优化并保存轨迹", "选择best_skill", "保留集与人工验收"],
+          "handoff": "失败轨迹被优化器消费，best_skill再被保留集验收消费",
+          "human_stop": "成本超限、优化目标漂移或保留集退步时停止",
+          "task_delivery": "本次优化后的Skill与保留集结论",
+          "reusable_asset": "训练/保留样例规范、成本闸门和优化工作流"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "conditional",
+        "dominant_engine": "失败记录反过来改写Skill",
+        "click_promise": "一个总失败的Skill，能不能从失败记录里把自己改好",
+        "cover_payoff": "失败轨迹 → best_skill",
+        "first_five_seconds": "同一个保留样例先失败，再亮出优化后结果，但明确训练集与保留集分开",
+        "visible_proof": "基线、优化轨迹和保留集结果",
+        "takeaway": "公开小Skill、样例拆分和成本闸门",
+        "share_or_save_reason": "做Skill的人可复用测试集拆分与停止规则",
+        "truth_boundary": "不把训练集提升写成泛化，不复述作者论文结果为我方实测"
+      },
+      "feasibility": {
+        "run_route": "workflow_minimal_run",
+        "complexity": "high",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "刻意不完整的原创分类Skill、训练样例和独立保留样例",
+        "acceptance": "优化轨迹完整、best_skill可复用、至少能诚实说明保留集改善或退步",
+        "stop_condition": "需要未批准付费模型、成本/时长越界、目标漂移或无法隔离训练与保留样例时停止",
+        "cost_guard": "预先锁定一次优化预算和最大轮次，不为得到正向结论追加运行",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "conditional_run"
+    },
+    {
+      "schema": "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0",
+      "order": 7,
+      "repository": "titanwings/distilly",
+      "ordinary_user_task": "把获授权的访谈和公开文章整理成可追溯的人物判断档案，再辅助一个新决策",
+      "desired_delivery": "来源账本、人物档案、同问题前后回答、归属边界和人工判断",
+      "skill_or_agent_contribution": "把来源整理、人物档案生成、调用与归属核对串成可复用链",
+      "content_mode": "AS-A_with_comparison",
+      "novelty_check": {
+        "topic_library_checked": true,
+        "history_library_checked": true,
+        "produced_media_checked": true,
+        "closest_existing_work": "WO-COMP-20260903-USE-02 是项目知识图谱记忆；既有多Agent题强调团队执行",
+        "material_difference": "本题关注获授权人物经验的可追溯交接与身份边界，不是项目文件记忆或多Agent团队"
+      },
+      "account_fit": {
+        "route": "FLOW",
+        "account_name": "老杨跑工作流",
+        "audience": "要交接资深员工经验、访谈材料和公开观点的小团队负责人",
+        "tone_fit": "从资料到档案再到新问题，强调来源、隐私和不冒充真人",
+        "other_account_failure_reason": "压成USE会只剩一次模仿回答，无法证明来源账本、档案生成和新问题调用的交接链",
+        "public_signal": "授权资料进入来源账本和人物档案，再被一个新问题调用并由人核对",
+        "required_chain": {
+          "recurring_trigger": "团队反复遇到需要参考资深成员判断的决策",
+          "stages": ["授权与隐私预检", "建立来源账本", "生成有边界的人物档案", "新问题调用与人工核对"],
+          "handoff": "来源账本被档案生成消费，人物档案再被新问题回答消费",
+          "human_stop": "缺授权、可能冒充真人、出现私密信息或无法追溯来源时停止",
+          "task_delivery": "本次人物档案与一个新问题的带来源回答",
+          "reusable_asset": "授权清单、来源账本模板、身份边界和调用工作流"
+        }
+      },
+      "viral_logic": {
+        "pre_screen_state": "conditional",
+        "dominant_engine": "人的经验能否被交接而不冒充本人",
+        "click_promise": "老员工走了，经验也会走？我把他的判断方法做成Agent档案",
+        "cover_payoff": "经验留下 / 身份不能复制",
+        "first_five_seconds": "同一个新问题先给普通回答，再显示哪条获授权来源改变了判断",
+        "visible_proof": "来源账本、人物档案和带引用回答",
+        "takeaway": "授权清单、来源账本和人物档案边界模板",
+        "share_or_save_reason": "有知识交接压力的小团队会保存授权与边界做法",
+        "truth_boundary": "不写复制真人，不使用私密资料，开发预览状态必须公开"
+      },
+      "feasibility": {
+        "run_route": "workflow_minimal_run",
+        "complexity": "high",
+        "isolated_environment": true,
+        "secrets_prohibited": true,
+        "representative_input": "一组获授权的原创访谈笔记和公开文章",
+        "acceptance": "来源可追溯、档案不冒充真人、新回答能指出具体来源且人工认为有用",
+        "stop_condition": "任何材料缺授权、出现个人隐私、依赖安装失败或开发预览行为不稳定时停止",
+        "cost_guard": "只做一个人物、一个新问题，不接邮箱和私有知识库",
+        "max_runs": 1
+      },
+      "formal_viral_review": {"status": "not_started", "artifact_path": "", "artifact_sha256": ""},
+      "public_claim": "待实跑；不得公开称已安装、已跑通或已实测",
+      "production_approved": false,
+      "decision": "conditional_run"
+    }
+  ]
+}

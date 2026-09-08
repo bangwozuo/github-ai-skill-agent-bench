@@ -28,6 +28,9 @@ HUMAN_VERDICTS = {"adopt", "trial", "reject", "unknown"}
 WORKFLOW_HANDOFF_SCHEMA = "GITHUB-AI-EVALUATION-HANDOFF-1.0"
 PUBLICATION_SCHEMA = "GITHUB-AI-WORK-PUBLICATION-1.0"
 PUBLIC_BUNDLE_SCHEMA = "GITHUB-AI-PUBLIC-BUNDLE-1.0"
+EDITORIAL_REVIEW_SCHEMA = "GITHUB-AI-CANDIDATE-EDITORIAL-REVIEW-2.0"
+EDITORIAL_BATCH_SCHEMA = "GITHUB-AI-CANDIDATE-EDITORIAL-BATCH-1.0"
+EDITORIAL_RECEIPT_SCHEMA = "GITHUB-AI-CANDIDATE-EDITORIAL-RECEIPT-1.0"
 
 
 def utc_now() -> str:
@@ -69,6 +72,189 @@ def sha256_file(path: Path) -> str:
 
 def require_fields(obj: dict[str, Any], fields: list[str]) -> list[str]:
     return [field for field in fields if obj.get(field) in (None, "", [])]
+
+
+def validate_editorial_review(review: dict[str, Any]) -> dict[str, Any]:
+    """Validate routing, viral pre-screen and feasibility without faking formal review."""
+
+    checks: list[dict[str, str]] = []
+
+    def add(check_id: str, passed: bool, message: str) -> None:
+        checks.append({"id": check_id, "status": "pass" if passed else "fail", "message": message})
+
+    add("schema", review.get("schema") == EDITORIAL_REVIEW_SCHEMA, f"schema must be {EDITORIAL_REVIEW_SCHEMA}")
+    add(
+        "candidate_identity",
+        not require_fields(review, ["repository", "ordinary_user_task", "desired_delivery", "skill_or_agent_contribution"]),
+        "repository, ordinary task, delivery and material contribution are required",
+    )
+
+    novelty = review.get("novelty_check") if isinstance(review.get("novelty_check"), dict) else {}
+    add(
+        "novelty_check",
+        all(novelty.get(key) is True for key in ("topic_library_checked", "history_library_checked", "produced_media_checked"))
+        and bool(novelty.get("material_difference")),
+        "all three existing-content surfaces and the material difference must be recorded",
+    )
+
+    account = review.get("account_fit") if isinstance(review.get("account_fit"), dict) else {}
+    route = account.get("route")
+    add("account_route", route in {"USE", "FLOW", "HOLD"}, "account route must be USE, FLOW or HOLD")
+    add(
+        "account_audience_and_tone",
+        not require_fields(account, ["account_name", "audience", "tone_fit", "other_account_failure_reason", "public_signal"]),
+        "audience, tone, public signal and other-account failure reason are required",
+    )
+    chain = account.get("required_chain") if isinstance(account.get("required_chain"), dict) else {}
+    if route == "USE":
+        route_fields = ["named_object", "bounded_task", "visible_result", "human_verdict"]
+    elif route == "FLOW":
+        route_fields = ["recurring_trigger", "stages", "handoff", "human_stop", "task_delivery", "reusable_asset"]
+    else:
+        route_fields = []
+    route_chain_valid = bool(route_fields) and not require_fields(chain, route_fields)
+    if route == "FLOW" and route_chain_valid:
+        route_chain_valid = isinstance(chain.get("stages"), list) and len(chain["stages"]) >= 2
+    add("account_native_chain", route_chain_valid, "the selected account's native public chain must be complete")
+
+    viral = review.get("viral_logic") if isinstance(review.get("viral_logic"), dict) else {}
+    add(
+        "viral_logic_substance",
+        not require_fields(
+            viral,
+            [
+                "dominant_engine",
+                "click_promise",
+                "cover_payoff",
+                "first_five_seconds",
+                "visible_proof",
+                "takeaway",
+                "share_or_save_reason",
+                "truth_boundary",
+            ],
+        ),
+        "viral pre-screen must bind the promise, first proof, payoff, takeaway and truth boundary",
+    )
+    add(
+        "viral_pre_screen_state",
+        viral.get("pre_screen_state") in {"pass", "conditional", "hold"},
+        "viral pre-screen state must be pass, conditional or hold",
+    )
+
+    feasibility = review.get("feasibility") if isinstance(review.get("feasibility"), dict) else {}
+    add(
+        "feasibility_route",
+        feasibility.get("run_route")
+        in {"controlled_minimal_run", "workflow_minimal_run", "awaiting_user_conditions", "hold"},
+        "one bounded run route is required",
+    )
+    add(
+        "feasibility_complexity",
+        feasibility.get("complexity") in {"low", "medium", "high"},
+        "complexity must be low, medium or high",
+    )
+    add(
+        "feasibility_safety",
+        feasibility.get("isolated_environment") is True and feasibility.get("secrets_prohibited") is True,
+        "third-party execution must stay isolated and secret-free",
+    )
+    add(
+        "feasibility_acceptance_and_stop",
+        not require_fields(feasibility, ["representative_input", "acceptance", "stop_condition", "cost_guard"])
+        and isinstance(feasibility.get("max_runs"), int)
+        and 1 <= feasibility["max_runs"] <= 3,
+        "representative input, acceptance, stop/cost guards and one to three maximum runs are required",
+    )
+
+    formal = review.get("formal_viral_review") if isinstance(review.get("formal_viral_review"), dict) else {}
+    formal_status = formal.get("status")
+    formal_artifact_valid = bool(formal.get("artifact_path")) and bool(
+        re.fullmatch(r"[0-9a-f]{64}", str(formal.get("artifact_sha256") or ""))
+    )
+    add(
+        "formal_review_state",
+        formal_status in {"not_started", "passed", "hold"},
+        "formal viral review status must be explicit",
+    )
+    add(
+        "formal_review_evidence",
+        formal_status != "passed" or formal_artifact_valid,
+        "a formal pass requires a hash-bound review artifact",
+    )
+
+    declared = review.get("decision")
+    add(
+        "candidate_decision",
+        declared in {"ready_for_isolated_run", "conditional_run", "hold"},
+        "candidate decision must stay pre-production",
+    )
+    decision_consistent = False
+    if declared == "ready_for_isolated_run":
+        decision_consistent = (
+            route in {"USE", "FLOW"}
+            and viral.get("pre_screen_state") == "pass"
+            and feasibility.get("run_route") in {"controlled_minimal_run", "workflow_minimal_run"}
+        )
+    elif declared == "conditional_run":
+        decision_consistent = (
+            route in {"USE", "FLOW"}
+            and viral.get("pre_screen_state") in {"pass", "conditional"}
+            and feasibility.get("run_route")
+            in {"controlled_minimal_run", "workflow_minimal_run", "awaiting_user_conditions"}
+        )
+    elif declared == "hold":
+        decision_consistent = True
+    add(
+        "decision_consistency",
+        decision_consistent,
+        "ready, conditional and hold decisions must match route, viral screen and feasibility",
+    )
+    add(
+        "no_false_production_approval",
+        review.get("production_approved") is False
+        and review.get("public_claim") == "待实跑；不得公开称已安装、已跑通或已实测",
+        "candidate screening cannot grant production approval or an own-run claim",
+    )
+
+    passed = all(item["status"] == "pass" for item in checks)
+    return {
+        "schema": EDITORIAL_RECEIPT_SCHEMA,
+        "repository": review.get("repository", ""),
+        "status": "pass" if passed else "fail",
+        "candidate_state": declared if passed else "hold",
+        "formal_viral_review_status": formal_status or "unknown",
+        "checks": checks,
+        "boundary": "A passing receipt means the candidate is structured for isolated evaluation. It is not a formal viral-quality pass, production approval, own-run result or traffic guarantee.",
+    }
+
+
+def command_validate_editorial(args: argparse.Namespace) -> int:
+    document = load_json(Path(args.input))
+    if document.get("schema") == EDITORIAL_BATCH_SCHEMA:
+        reviews = document.get("reviews")
+        if not isinstance(reviews, list) or not reviews:
+            raise ValueError("editorial batch requires a non-empty reviews array")
+    else:
+        reviews = [document]
+    receipts = [validate_editorial_review(item) for item in reviews if isinstance(item, dict)]
+    if len(receipts) != len(reviews):
+        raise ValueError("every editorial review must be a JSON object")
+    repositories = [item.get("repository") for item in reviews]
+    unique = len(repositories) == len(set(repositories)) and all(repositories)
+    passed = unique and all(item["status"] == "pass" for item in receipts)
+    receipt = {
+        "schema": EDITORIAL_RECEIPT_SCHEMA,
+        "status": "pass" if passed else "fail",
+        "review_count": len(receipts),
+        "repositories_unique": bool(unique),
+        "reviews": receipts,
+        "boundary": "This validates candidate-stage account fit, viral pre-screen fields and bounded feasibility. Formal text, recording and final-media reviews remain separate.",
+    }
+    if args.output:
+        write_json(Path(args.output), receipt)
+    else:
+        print(json.dumps(receipt, ensure_ascii=False, indent=2))
+    return 0 if passed else 2
 
 
 def normalized_license(repo: dict[str, Any]) -> dict[str, str]:
@@ -1231,6 +1417,14 @@ def build_parser() -> argparse.ArgumentParser:
     shortlist.add_argument("--momentum")
     shortlist.add_argument("--output", required=True)
     shortlist.set_defaults(func=command_shortlist)
+
+    editorial = sub.add_parser(
+        "validate-editorial",
+        help="validate account fit, viral pre-screen and bounded run feasibility",
+    )
+    editorial.add_argument("--input", required=True)
+    editorial.add_argument("--output")
+    editorial.set_defaults(func=command_validate_editorial)
 
     freeze = sub.add_parser("freeze-candidate", help="freeze repository identity, license and commit")
     freeze.add_argument("--repo", required=True)
