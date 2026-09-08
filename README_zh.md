@@ -17,6 +17,12 @@
 完整设计见 [`task_delivery/engine-design.md`](task_delivery/engine-design.md)，流程图见 [`workflow_asset/workflow-map.md`](workflow_asset/workflow-map.md)。
 旁路融合与单作品仓库规范见 [`docs/existing-workflow-integration.md`](docs/existing-workflow-integration.md)。
 
+## 最新候选挖掘
+
+- [2026-09-08：7 个 GitHub 高热度 AI Skill / Agent 真实评测候选](task_delivery/2026-09-08-top7-candidates.md)
+
+该清单来自一个有时间戳的 GitHub 快照和当前内容库去重，表示“值得进入隔离实跑”，不表示已经安装、跑通、采用或保证爆款。
+
 ## 快速开始
 
 ```bash

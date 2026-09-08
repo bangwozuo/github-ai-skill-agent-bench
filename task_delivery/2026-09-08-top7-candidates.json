@@ -1,0 +1,111 @@
+{
+  "schema": "GITHUB-AI-TOP7-MINING-1.0",
+  "observed_at": "2026-09-08T00:14:21Z",
+  "source_snapshot": {
+    "repositories": 162,
+    "reproduction_candidates": 129,
+    "momentum_available": false,
+    "boundary": "one timestamped snapshot; no growth-rate claim"
+  },
+  "content_library_review": {
+    "topic_rows": 92,
+    "history_rows": 129,
+    "writes_existing_tables": false,
+    "decision": "semantic near-duplicates excluded from the first evaluation batch"
+  },
+  "candidates": [
+    {
+      "order": 1,
+      "repository": "NVIDIA/SkillSpector",
+      "url": "https://github.com/NVIDIA/SkillSpector",
+      "commit": "704bc9544260c2f41222dc0f92982521709496ab",
+      "license": "Apache-2.0",
+      "stars": 16562,
+      "release": "v2.11.1",
+      "evaluation_task": "scan a synthetic skill containing safe rules and known suspicious fixtures without secrets",
+      "visible_delivery": "JSON and Markdown risk report with file and line evidence",
+      "content_mode": "AS-C",
+      "state": "frozen_pending_isolated_run"
+    },
+    {
+      "order": 2,
+      "repository": "blader/humanizer",
+      "url": "https://github.com/blader/humanizer",
+      "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+      "license": "MIT",
+      "stars": 44952,
+      "release": "v3.0.0",
+      "evaluation_task": "rewrite one original Chinese product article while preserving every fact, number, and proper name",
+      "visible_delivery": "before-after diff, fact-retention check, and blind human verdict",
+      "content_mode": "AS-A_with_comparison",
+      "state": "frozen_pending_isolated_run"
+    },
+    {
+      "order": 3,
+      "repository": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "commit": "2724fd2efd8c6737f6fa704fbf5da52d67375497",
+      "license": "MIT",
+      "stars": 33278,
+      "release": "none",
+      "evaluation_task": "turn one original 600-word process explanation into a phone-readable self-contained HTML/SVG diagram",
+      "visible_delivery": "HTML, SVG, hierarchy explanation, and phone-size review",
+      "content_mode": "AS-A_with_comparison",
+      "state": "frozen_pending_commit_pinned_run"
+    },
+    {
+      "order": 4,
+      "repository": "virgiliojr94/book-to-skill",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "commit": "a6cad12dee07a7700068e2aa51cba871ef3b5349",
+      "license": "MIT",
+      "stars": 28968,
+      "release": "v1.4.0",
+      "evaluation_task": "convert an owned or openly licensed technical guide into a queryable agent skill",
+      "visible_delivery": "generated skill, index, cited answer, and copying-rights check",
+      "content_mode": "AS-A",
+      "state": "frozen_pending_rights_and_dependency_preflight"
+    },
+    {
+      "order": 5,
+      "repository": "alibaba/open-code-review",
+      "url": "https://github.com/alibaba/open-code-review",
+      "commit": "04284b5dc19e0f52528ca466a767e4a2c100e5f5",
+      "license": "Apache-2.0",
+      "stars": 22040,
+      "release": "v1.11.6",
+      "evaluation_task": "review an owned small repository with three predeclared defects",
+      "visible_delivery": "line-level JSON comments, known-defect hits, misses, noise, and human verdict",
+      "content_mode": "AS-C",
+      "state": "frozen_pending_model_and_fixture_lock"
+    },
+    {
+      "order": 6,
+      "repository": "microsoft/SkillOpt",
+      "url": "https://github.com/microsoft/SkillOpt",
+      "commit": "79124b37e9a6371e13b753f8bcd7adb1e493ade1",
+      "license": "MIT",
+      "stars": 16750,
+      "release": "v0.2.0",
+      "evaluation_task": "optimize one deliberately incomplete original classification skill with train and held-out cases",
+      "visible_delivery": "baseline skill, best_skill, trajectory, held-out result, and human verdict",
+      "content_mode": "AS-C",
+      "state": "frozen_pending_cost_preflight"
+    },
+    {
+      "order": 7,
+      "repository": "titanwings/distilly",
+      "url": "https://github.com/titanwings/distilly",
+      "commit": "cf15171f37fcfc4ab7638210705a2973f2b8186a",
+      "license": "MIT",
+      "stars": 24421,
+      "release": "none_developer_preview",
+      "evaluation_task": "distill authorized original interview notes into a bounded person profile and apply it to one new decision",
+      "visible_delivery": "source ledger, person profile, before-after answer, attribution boundary, and human verdict",
+      "content_mode": "AS-A_with_comparison",
+      "state": "frozen_last_priority_developer_preview"
+    }
+  ],
+  "public_boundary": "No selected third-party repository has been installed or run by this mining report. Star counts and README claims are source observations, not adoption conclusions or traffic guarantees."
+}
+
